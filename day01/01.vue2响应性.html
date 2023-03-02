@@ -1,0 +1,64 @@
+<script>
+
+  // let quantity = 2
+  // // 定义一个商品对象
+  // let product = {
+  //   price: 10,
+  //   quantity: quantity
+  // }
+
+  // 总价格
+  // let total = product.price * product.quantity
+  // console.log(`总价格：${total}`);//20
+
+  // 修改商品数量
+  // product.quantity = 5
+  // console.log(`总价格：${total}`);//20
+
+  // 方案一:
+  // 定义一个函数，数据更改时调用 达到响应性
+  // 缺点：数据改动需要手动调用
+
+  // 总价格
+  let total1 = 0
+
+  //  // 计算总价格                         
+  //  let effect = () => {
+  //   total = product.price * product.quantity
+  // }
+
+  // effect()
+  // console.log(`总价格：${total}`);//50
+
+
+// 方案二：Object.defineProperty() 只能给指定对象和指定属性监听get和set行为
+// 缺陷：由于JavaScript的限制，Vue不能监测数组和对象的变化
+// 1.当为对象新增一个没有在data中声明的属性时,新增的属性 不是响应性的
+// 2.当数组通过下标的形式新增一个元素时,新增的元素 不是响应性的
+let quantity = 2
+  // 定义一个商品对象
+  let product = {
+    price: 10,
+    quantity: quantity
+  }                                                                         
+
+    // 计算总价格                         
+    let effect = () => {
+    total = product.price * product.quantity
+  }
+
+  effect()
+  console.log(`总价格：${total}`);//20
+
+Object.defineProperty( product,'quantity',{
+  set(newVal){
+    console.log('setter');
+    quantity = newVal
+    effect()
+  },
+  get(){
+    console.log('getter');
+    return quantity
+  }
+})
+</script>

@@ -1,0 +1,19 @@
+<script>
+    const p = {
+    lastName: '张',
+    firstName: '三',
+    get fullName() {
+      return this.lastName + this.firstName
+    }
+  }
+
+  const proxy = new Proxy(p, {
+    get(target,key,receiver) {
+      console.log('getter');
+      // return target[key]
+      return Reflect.get(target,key,receiver)
+    }
+  })
+
+  console.log(proxy.fullName);//张三
+</script>

@@ -1,0 +1,22 @@
+<script>
+  const p = {
+    lastName: '张',
+    firstName: '三',
+    get fullName() {
+      return this.lastName + this.firstName
+    }
+  }
+
+  const p1 = {
+    lastName: '李',
+    firstName: '四',
+    get fullName() {
+      return this.lastName + this.firstName
+    }
+  }
+
+  console.log(p.fullName);//张三
+  console.log(Reflect.get(p,'fullName'));//张三
+  console.log(Reflect.get(p,'fullName',p1));//李四
+
+</script>
