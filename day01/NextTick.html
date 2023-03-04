@@ -4,10 +4,10 @@
 
 
   // 为什么要有nexttick
-  // { { num } }
-  // for (let i = 0; i < 100000; i++) {
-  //   num = i
-  // }
+  { { num } }
+  for (let i = 0; i < 100000; i++) {
+    num = i
+  }
   // 如果没有 nextTick 更新机制，那么 num 每次更新值都会触发视图更新(上面这段代码也就是会更新10万次视图)，
   // 有了nextTick机制，只需要更新一次，所以nextTick本质是一种优化策略
 
