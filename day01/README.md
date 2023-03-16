@@ -54,4 +54,20 @@
 
 ## 2.使用场景
 
-定义一个`tooltip`提示框，内部通过`isShowing`来控制显示																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													
+定义一个`tooltip`提示框，内部通过`isShowing`来控制显示
+
+# 前端路由
+
+## 1.hash模式
+
+- hash变化会触发网页跳转,即浏览器的前进后退
+- hash变化不会刷新页面,SPA必须的特点
+- hash永远不会提交到server端
+- window.onhashchange
+
+## 2.H5 history模式
+
+- 用url规范的路由，跳转不刷新页面
+- history.pushState
+- window.onpropstate																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													
+
