@@ -3,12 +3,13 @@
     <div>ref {{ ageRef }}</div>
     <div div>ref {{ hz.age }}</div>
     <p ref="pRef">123</p>
+    <button @click="sendData">传递数据</button>
   </div>
 
 </template>
 
 <script setup >
-import { onMounted, reactive, ref } from 'vue';
+import { onMounted, reactive, ref, defineEmits } from 'vue';
 // 生成值类型的响应式数据,通过.value修改值
 // ref也可以获取dom
 // reactive 是 Vue3 中提供的实现响应式数据的方法。
@@ -37,6 +38,12 @@ const hz = reactive({
   age: 12
 })
 
+const emit = defineEmits(['send1'])
+
+const sendData = () => {
+  emit('send1','我是子组件的数据')
+}
+
 setInterval(() => {
   ageRef.value = 1
   hz.age = 1
@@ -45,6 +52,7 @@ setInterval(() => {
 onMounted(()=> {
   console.log(pRef.value);
 })
+
 </script>
 
 <style scoped>
