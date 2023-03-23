@@ -21,5 +21,7 @@ const proxyData = new Proxy(data,{
     console.log('result', result);//true
     return result
   }
-
 })
+Object.defineProperty
+// Proxy能规避Object.defineProperty的问题
+// 但是无法兼容所有浏览器,无法polyfill
