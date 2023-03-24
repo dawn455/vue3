@@ -69,5 +69,41 @@
 
 - 用url规范的路由，跳转不刷新页面
 - history.pushState
-- window.onpropstate																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																																													
+- window.onpropstate		
+																													
+# Vue3为什么比Vue2快
 
+#### 1.  Proxy响应式
+#### 2.  PatchFlag
+- 编译模板时，动态节点做标记
+- 标记，分为不同的类型，入TEXT PROPS
+- diff算法时，可以区分静态节点，以及不同类型的动态节点
+#### 3.  hoistStatic
+
+- 将静态节点的定义，提升到父级作用域，缓存起来
+- 多个相邻的静态节点，会被合并起来
+- 典型的拿空间换时间的优化策略
+
+#### 4.  cacheHandler
+
+缓存事件
+
+#### 5.  SSR优化
+#### 6.  tree-shanking
+
+编译时，根据不同的情况，引入不同的API
+
+
+
+# Vite
+
+## Vite是什么
+
+- 一个前端打包工具，Vue作者发起的项目
+- 借助Vue的影响力，发展较快，和webpack竞争
+- 优势：开发环境下无需打包，启动更快
+
+## Vite为什么启动快？
+
+- 开发环境使用ES6 Module，无需打包 ---非常快
+- 生产环境使用rollup，并不会快很多
