@@ -107,3 +107,11 @@
 
 - 开发环境使用ES6 Module，无需打包 ---非常快
 - 生产环境使用rollup，并不会快很多
+
+
+
+# Composition API和React Hooks对比
+
+- 前者setup只会被调用一次，而后者函数会被多次调用
+- 前者无需useMemo useCallback，因为setup只调用一次
+- 前者无需顾虑调用顺序，而后者需要保证hooks的顺序一致
